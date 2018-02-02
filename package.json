@@ -1,0 +1,33 @@
+{
+  "name": "cat-code",
+  "version": "1.0.0",
+  "description": "scan folder and concat code, for applying copyright in computer software.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/declan94/cat-code.git"
+  },
+  "keywords": [
+    "concat",
+    "code",
+    "copyright",
+    "computer",
+    "software"
+  ],
+  "author": "Declan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/declan94/cat-code/issues"
+  },
+  "homepage": "https://github.com/declan94/cat-code#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "minimist": "^1.2.0",
+    "rimraf": "^2.6.2",
+    "run-sequence": "^2.2.1"
+  }
+}
