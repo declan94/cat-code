@@ -31,7 +31,7 @@ var gulpConcatExt = function(ext) {
   return taskFunc;
 }
 
-var exts = ['js', 'java', 'html', 'css', 'less', 'py', 'sh', 'jade'];
+var exts = ['py', 'java', 'scala', 'html', 'js', 'css', 'less', 'sh', 'jade'];
 
 for (var i = 0; i < exts.length; i++) {
   var ext = exts[i];
