@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var minimist = require('minimist');
 var rimraf = require('rimraf');
+var wrap = require("gulp-wrap");
+var insert = require('gulp-insert');
 var runSequence = require('run-sequence');
 
 var knownOptions = {
@@ -25,6 +27,19 @@ var gulpConcatExt = function(ext) {
         "!" + options.folder + "/**/node_modules/**/*",
         "!" + options.folder + "/**/dist/**/*"
       ])
+      .pipe(insert.transform(function(contents, file) {
+        var parts = file.path.split('/');
+        var comment_prefix = '// ';
+        var comment_suffix = '';
+        if (ext == 'html') {
+          comment_prefix = '<!-- ';
+          comment_suffix = ' -->';
+        } else if (ext == 'sh' || ext == 'py') {
+          comment_prefix = '# ';
+        }
+        var comment = comment_prefix + "Filename: " + parts[parts.length-1] + comment_suffix + '\n';
+        return comment + contents;
+      }))
       .pipe(concat("concat." + ext))
       .pipe(gulp.dest(output));
   }
