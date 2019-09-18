@@ -38,7 +38,7 @@ var gulpConcatExt = function(ext) {
           comment_prefix = '# ';
         }
         var comment = comment_prefix + "Filename: " + parts[parts.length-1] + comment_suffix + '\n';
-        return comment + contents;
+        return comment + contents + "\n\n";
       }))
       .pipe(concat("concat." + ext))
       .pipe(gulp.dest(output));
