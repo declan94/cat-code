@@ -23,10 +23,15 @@ var gulpConcatExt = function(ext) {
     gulp.src([options.folder + "/**/*." + ext,
         "!" + options.folder + "/**/bower_components/**/*",
         "!" + options.folder + "/**/node_modules/**/*",
-        "!" + options.folder + "/**/dist/**/*"
+        "!" + options.folder + "/**/dist/**/*",
+        "!" + options.folder + "/**/lib/**/*",
+        "!" + options.folder + "/**/webapp/**/*"
       ])
       .pipe(concat("concat." + ext))
       .pipe(gulp.dest(output));
+    gulp.src([options.folder + "/**/bower_components/**/*." + ext])
+      .pipe(concat("concat." + ext))
+      .pipe(gulp.dest(output + "/bower"));
   }
   return taskFunc;
 }
